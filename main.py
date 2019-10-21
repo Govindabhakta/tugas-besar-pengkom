@@ -10,7 +10,6 @@ Aindrea Rayhan Supriyanto   16519360
 '''
 
 
-
 ###FUNGSI PLACEHOLDER
 def DistFind(asal, destinasi):
     return 25
