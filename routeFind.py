@@ -5,9 +5,12 @@ DIRECTORY
     | pos[]             22
     | street[]          32
 | FUNGSI
-    | Jarak()           50
+    | distTo()          52
+    | Jarak()           61
     | pickStreet()      x
 '''
+import math
+
 
 ###DAFTAR NAMA DAN INDEKS TEMPAT
 loc = [
@@ -46,8 +49,16 @@ street = [
     [2, 5, 5]
 ]
 
+###distTo()
+'''
+distTo(posA, posB)
+parameter posA dan posB dapat berupa indeks loc[] ataupun indeks pos[]
+'''
+def distTo(A, B):
+    dist = math.sqrt((pos[A][0]+pos[B][0])*(pos[A][0]+pos[B][0]) + (pos[A][1]+pos[B][1])*(pos[A][1]+pos[B][1]))
+    return dist
 
-###FUNGSI JARAK
+###Jarak()
 '''
 jarak(asal, destinasi) 
 parameter asal dan destinasi adalah indeks loc[]
@@ -57,6 +68,8 @@ def Jarak(start, end):
     
     return dist
 
+'''
+up for revisi
 ###PICKSTREET MENCARI JALAN YANG TERHUBUNG DENGAN A DENGAN DISPLACEMENT TERKECIL DARI A KE B
 def pickStreet(A, B):
     #Routes adalah indeks jalan yang terhubung dengan A
@@ -89,8 +102,6 @@ def pickStreet(A, B):
         print(routes[i], routesEnd[i])
     
     return
-
-pickStreet(1, 5)
-
+'''
 
 
