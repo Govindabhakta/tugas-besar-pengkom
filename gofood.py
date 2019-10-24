@@ -21,10 +21,12 @@ def Salman(k):
 def Upno(l):
     upnoo = ['Si Eko','Roti Bakar','Cireng','Indomie']
     return upnoo[l]
+def DistFind():
+    return 25000
+
 print('GO-FOOD')
 print()
 print('Silahkan memilih merchant :')
-print()
 for i in range(3):
     print(RestaurantFind(i))
 print()
@@ -51,50 +53,44 @@ selesai = False
 while selesai == False:
     makan = int(input('Pilih makanan :'))
     m = makan - 1
-    berapa = int(input('tentukan jumlah :'))
+    berapa = int(input('Tentukan jumlah :'))
     total += (menu[n][m]*berapa)
-    done = int(input('apakah anda ingin memilih lagi? (ya=1, tidak=0) : '))
+    done = int(input('Apakah anda ingin memilih lagi? (ya=1, tidak=0) :'))
     if done == 0:
         selesai = True
-if merchant == 1:
-    jarak = 5000
-elif merchant == 2:
-    jarak = 6000
-elif merchant == 3:
-    jarak = 7000
-    
-total += jarak*(4/1)
 
-print('total biaya adalah =',total,' rupiah')
+total += DistFind()*(4/1)
 
-bayar = int(input('pilih metode pembayaran (cash=0, gopay=1) : '))
+print('Total biaya adalah =',total,' rupiah')
+print()
+bayar = int(input('Pilih metode pembayaran (cash=0, go-pay=1) : '))
 if bayar == 0:
-    print('pesanan anda sedang diproses...')
+    print('Pesanan anda sedang diproses...')
 elif bayar == 1:
-    print('saldo gopay anda adalah ',saldo)
+    print('Saldo gopay anda adalah ',saldo)
     if saldo >= total:
         cukup = True
     elif saldo < total:
         cukup = False
     if cukup == True:
-        print('pesanan anda sedang diproses...')
+        print('Pesanan anda sedang diproses...')
         saldo -= total
-        print('saldo anda sekarang :',saldo)
+        print('Saldo anda sekarang :',saldo)
     elif saldo < total:
         while cukup == False:
-            print('saldo anda tidak mencukupi, apakah anda ingin mengisi saldo?')
+            print('Saldo anda tidak mencukupi, apakah anda ingin mengisi saldo?')
             isi = int(input('ya = 1, tidak = 0 :'))
             if isi == 1:
-                isiy = int(input('isi saldo gopay anda :'))
+                isiy = int(input('Isi saldo gopay anda :'))
                 saldo += isiy
-                print('saldo anda sekarang =',saldo)
+                print('Saldo anda sekarang =',saldo)
                 if saldo >= total:
-                    print('saldo anda mencukupi, pesanan anda sedang diproses...')
+                    print('Saldo anda mencukupi, pesanan anda sedang diproses...')
                     saldo -= total
                     print()
-                    print('saldo anda sekarang :',saldo)
+                    print('Saldo anda sekarang :',saldo)
                     cukup = True
             elif isi == 0:
-                print('harap melakukan pembayaran menggunakan cash')
+                print('Harap melakukan pembayaran menggunakan cash')
                 cukup = True
                 
