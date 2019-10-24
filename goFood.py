@@ -8,59 +8,52 @@ menu = [[16000, 20500, 14000, 13000],
         [24000, 15500, 18000, 30000],
         [16000, 13000, 16000, 17500]]
 
+#array nama makanan
+menu2 = [['Geprek Crispy','Geprek Tomat','Geprek Matah','Geprek Mozzarella'],
+         ['Takol','Kuro','Go-Milk','Siomay'],
+         ['Si Eko','Roti Bakar','Cireng','Indomie']]
 
+#fungsi nama merchant
 def RestaurantFind(i):
     tempat = ["Crisbar", "Salman", "Upnormal"]
     return tempat[i]
-def Crisbar(j):
-    crisbarr = ['Geprek Crispy','Geprek Tomat','Geprek Matah','Geprek Mozzarella']
-    return crisbarr[j]
-def Salman(k):
-    salmann = ['Takol','Kuro','Go-Milk','Siomay']
-    return salmann[k]
-def Upno(l):
-    upnoo = ['Si Eko','Roti Bakar','Cireng','Indomie']
-    return upnoo[l]
 def DistFind():
-    return 25000
+    return 5000
 
+#interface awal
 print('GO-FOOD')
 print()
 print('Silahkan memilih merchant :')
 for i in range(3):
-    print(RestaurantFind(i))
+    print(str(i+1)+'. '+RestaurantFind(i))
 print()
 
 #pilih merchant
-merchant = int(input('Pilih merchant (Crisbar = 1, Salman = 2, Upnormal = 3) :'))
+merchant = int(input('Pilih merchant : '))
 n = merchant - 1
 
+#display menu dari merchant yang telah dipilih
 print('Restaurant yang dipilih :'+RestaurantFind(merchant-1))
-if merchant == 1:
-    for m in range(4):
-         print((m+1),'.',Crisbar(m),'=',menu[n][m])
-    print()
-elif merchant == 2:
-    for m in range(4):
-         print((m+1),'.',Salman(m),'=',menu[n][m])
-    print()
-elif merchant == 3:
-    for m in range(4):
-         print((m+1),'.',Upno(m),'=',menu[n][m])
-    print()
+for i in range(4):
+    print(str(i+1)+'. '+str(menu2[n][i])+': '+str(menu[n][i]))
 
 selesai = False
 while selesai == False:
     makan = int(input('Pilih makanan :'))
     m = makan - 1
+
+#menentukan jumlah makanan yang ingin dipesan
     berapa = int(input('Tentukan jumlah :'))
     total += (menu[n][m]*berapa)
-    done = int(input('Apakah anda ingin memilih lagi? (ya=1, tidak=0) :'))
-    if done == 0:
+    done = int(input('Apakah anda ingin memilih lagi? (ya=0, tidak=1) :'))
+    if done == 1:
         selesai = True
+print()
 
+#menambahkan total biaya dengan biaya pengiriman
 total += DistFind()*(4/1)
-
+print('Biaya makanan anda adalah = ',str(total-DistFind()*(4/1)))
+print('Biaya antar anda adalah = ',str(DistFind()*(4/1)))
 print('Total biaya adalah =',total,' rupiah')
 print()
 bayar = int(input('Pilih metode pembayaran (cash=0, go-pay=1) : '))
