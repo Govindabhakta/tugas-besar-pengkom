@@ -26,13 +26,9 @@
 - `GopayBayar(bayar, *gopay, *cash)`
   - `GopayKurang(bayar, *gopay, *cash)`
   
-> GopayDana() memberi jumlah gopay 
-
 > GopayTopup() memberi pilihan metode topup dan menambahkan dana gopay
 
 > GopayBayar() bakal dipakai fungsi yang lain buat bayar pakai gopay
-
-> GopayKurang() untuk mengurus kalau gopay ga cukup buat bayar 
 
 ### ROUTE FINDING
 ##### FUNGSI
