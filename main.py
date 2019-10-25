@@ -24,7 +24,7 @@ def BayarGopay(gopay, harga):
     #Nanti BayarGopay() returnnya jumlah yang dibayar pakai gopay dan jumlah yang pakai cash
     payWithCash = 0
     payWithGopay = float(harga)
-    return payWithGopay, payWithCash
+    return 
 ###END OF FUNGSI PLACEHOLDER
 
 
