@@ -10,9 +10,8 @@ Aindrea Rayhan Supriyanto   16519360
 '''
 
 
-
 ###FUNGSI PLACEHOLDER
-def DistFind(asal, destinasi):
+def Jarak(asal, destinasi):
     return 25
 
 def RestaurantFind(i):
