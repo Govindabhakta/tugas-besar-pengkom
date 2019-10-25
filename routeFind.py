@@ -106,4 +106,17 @@ def pickStreet(A, B):
     return
 '''
 
+###minIndex()
+'''
+Menerima input array
+Memberi output index dari nilai terrendah pada array tersebut
+'''
+def minIndex(array):
+    minim = array[0]
+    iminim = 0
+    for i in array:
+        if array[i] < minim:
+            iminim = i
+    return iminim
+
 
