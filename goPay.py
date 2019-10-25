@@ -10,6 +10,7 @@ def TopUpGopay(gopay):
     print("2. Instruksi")
     i = int(input("Pilih Metode Pembelian: "))
     if i == 1:
+        # User ingin TopUp dengan metode instan
         print("ISI NOMINAL")
         gopay_Plus = int(input())
         print("Jumlah Top up             Rp", gopay_Plus)
@@ -18,10 +19,14 @@ def TopUpGopay(gopay):
         print("Total Pembayaran          Rp", gopay_Plus+1000)
         print("Masukkan PIN")
         PIN = int(input())
+        # PIN hanya untuk meramaikan
         gopay = gopay + gopay_Plus
+        # saldo gopay bertambah sebanyak gopay_Plus
         return (gopay)
     
     if i == 2:
+        # User ingin TopUp dengan metode instruksi
+        # Metode instruksi hanya menunjukan cara TopUp gopay sehingga tidak menambah nilai saldo gopay di program
         print("1. Driver Gojek")
         print("   Minta driver kamu untuk isi GoPay. Bebas Biaya Admin!")
         print("2. Minimarket & Pegadaian")
@@ -36,6 +41,7 @@ def TopUpGopay(gopay):
         Pil_Met = int(input("Pilih Metode Pembelian Saldo Gopay: "))
         print()
         if (Pil_Met == 1):
+            # User ingin melihat cara TopUp gopay melalui driver gojek
             print("Cara meminta driver transfer Gopay:")
             print("BIAYA ADMIN GRATIS! - TANPA MINIMUM ISI")
             print()
@@ -46,6 +52,7 @@ def TopUpGopay(gopay):
             return
 
         elif (Pil_Met == 2):
+            # User ingin melihat cara TopUp gopay melalui Minimarket & pegadaian
             print("Minimarket & Pegadaian")
             print("1. Alfamart")
             print("2. Alfamidi")
@@ -54,7 +61,8 @@ def TopUpGopay(gopay):
             print("5. Pegadaian")
             print()
             Pil_Mart = int(input("Pilih Minimarket atau Pegadaian: "))
-            if (Pil_Mart == 1):
+            if (Pil_Mart == 5):
+                # User ingin melihat cara TopUp gopay melalui pegadaian
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp2.000 - MINIMUM ISI Rp20.000")
                 print()
@@ -64,9 +72,10 @@ def TopUpGopay(gopay):
                 print("4. Biaya nominal yang ingin kamu isi ke kasir (plus biaya admin Rp.2000).")
                 print("5. Kasir akan mengisi saldo ke akun GoPay kamu.")
                 print("6. Pastikan GoPay kamu sudah bertambah.")
-                print("7. SImpan tanda terimanya sebagai bukti pembayaran sah.")
+                print("7. Simpan tanda terimanya sebagai bukti pembayaran sah.")
                 return
             else:
+                # User ingin melihat cara TopUp gopay melalui minimarket
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp2.000 - MINIMUM ISI Rp10.000")
                 print()
@@ -80,6 +89,7 @@ def TopUpGopay(gopay):
                 return
 
         elif (Pil_Met == 3):
+            # User ingin melihat cara TopUp gopay melalui BCA OneKlik
             print("Cara isi GoPay:")
             print("BIAYA ADMIN Rp1.000 - TANPA MINIMUM ISI")
             print()
@@ -93,6 +103,7 @@ def TopUpGopay(gopay):
             return
         
         elif (Pil_Met == 4):
+            # User ingin melihat cara TopUp gopay melalui Mobile banking
             print("Mobile banking")
             print("1. BCA")
             print("2. Mandiri")
@@ -102,6 +113,7 @@ def TopUpGopay(gopay):
             print()
             i = int(input("Pilih Banknya:"))
             if i == 1:
+                # User ingin melihat cara TopUp gopay melalui BCA
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp1.000 - MINIMUM ISI Rp10.000")
                 print()
@@ -115,6 +127,7 @@ def TopUpGopay(gopay):
                 return
             
             elif i == 2:
+                # User ingin melihat cara TopUp gopay melalui Mandiri
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp1.000 - MINIMUM ISI Rp15.000")
                 print()
@@ -126,6 +139,7 @@ def TopUpGopay(gopay):
                 return
             
             elif i == 3:
+                # User ingin melihat cara TopUp gopay melalui BRI
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp1.000 - MINIMUM ISI Rp10.000")
                 print()
@@ -138,6 +152,7 @@ def TopUpGopay(gopay):
                 return
             
             elif i == 4:
+                # User ingin melihat cara TopUp gopay melalui BNI
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp1.000 - MINIMUM ISI Rp10.000")
                 print()
@@ -149,6 +164,7 @@ def TopUpGopay(gopay):
                 return
             
             else:
+                # User ingin melihat cara TopUp gopay melalui PermataBank
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp1.000 - MINIMUM ISI Rp10.000")
                 print()
@@ -161,11 +177,13 @@ def TopUpGopay(gopay):
                 return
             
         else:
+            # User ingin melihat cara TopUp gopay melalui SMS Banking
             print("SMS Banking")
             print("1. BRI")
             print("2. BNI")
             i = int(input("Pilih Banknya: "))
             if i == 1:
+                # User ingin melihat cara TopUp gopay melalui SMS Banking BRI
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp1.000 - MINIMUM ISI Rp10.000")
                 print()
@@ -174,6 +192,7 @@ def TopUpGopay(gopay):
                 return
             
             else:
+                # User ingin melihat cara TopUp gopay melalui SMS Banking BNI
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp1.000 - MINIMUM ISI Rp10.000")
                 print()
