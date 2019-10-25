@@ -33,7 +33,6 @@ pos = [
 ]
 
 ###DAFTAR JALAN
-###street[nomor jalan][A]
 '''
 street[x][0] = titik awal jalan(indeks loc)
 street[x][1] = titik akhir jalan(indeks loc)
