@@ -1,3 +1,8 @@
+'''
+gopay =  variabel untuk pembayaran (integer)
+gopay_Plus = variabel untuk nilai penambahan gopay (integer)
+asumsi tidak salah input 
+'''
 def TopUpGopay(gopay):
     print("Instruksi Pengisian Saldo Gopay")
     print("Metode Pembelian Saldo Gopay")
