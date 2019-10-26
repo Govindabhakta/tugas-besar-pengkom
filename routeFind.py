@@ -72,7 +72,7 @@ def Jarak(start, end):
 
     while currentNode != end:
         queue += pickStreet(currentNode, end)
-        
+
 
     return dist
 
@@ -137,6 +137,18 @@ def sortQueue(queue):
 
     return newQueue
 
+###progressQueue()
+'''
+Menerima input suatu array(queue), menghilangkan indeks 1 dan memajukan seluruh indeks dibelakangnya
+'''
+def progressQueue(queue):
+    newQueue = [0 for i in range(queue[0])]
+    newQueue[0] = queue[0]
+    print(queue)
+    for i in range(1, queue[0]):
+        newQueue[i] = queue[i+1]
+
+    return newQueue
 
 
 
