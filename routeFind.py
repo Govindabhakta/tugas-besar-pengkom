@@ -143,7 +143,7 @@ Menerima input suatu array(queue), menghilangkan indeks 1 dan memajukan seluruh 
 '''
 def progressQueue(queue):
     newQueue = [0 for i in range(queue[0])]
-    newQueue[0] = queue[0]
+    newQueue[0] = queue[0]-1
     print(queue)
     for i in range(1, queue[0]):
         newQueue[i] = queue[i+1]
