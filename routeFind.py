@@ -69,7 +69,11 @@ def Jarak(start, end):
     
     currentNode = start
     queue = ""
-    
+
+    while currentNode != end:
+        queue += pickStreet(currentNode, end)
+        
+
     return dist
 
 ###PICKSTREET MENCARI JALAN YANG TERHUBUNG DENGAN A DENGAN DISPLACEMENT TERKECIL DARI A KE B
@@ -103,7 +107,7 @@ def pickStreet(A, B):
     for i in range(count):
         print(routes[i], routesEnd[i])
     
-    return
+    return routesEnd
 
 ###minIndex()
 '''
