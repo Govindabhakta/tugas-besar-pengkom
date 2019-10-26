@@ -67,10 +67,11 @@ parameter asal dan destinasi adalah indeks loc[]
 def Jarak(start, end):
     dist = 0 
     
+    currentNode = start
+    queue = ""
+    
     return dist
 
-'''
-up for revisi
 ###PICKSTREET MENCARI JALAN YANG TERHUBUNG DENGAN A DENGAN DISPLACEMENT TERKECIL DARI A KE B
 def pickStreet(A, B):
     #Routes adalah indeks jalan yang terhubung dengan A
@@ -103,19 +104,35 @@ def pickStreet(A, B):
         print(routes[i], routesEnd[i])
     
     return
-'''
 
 ###minIndex()
 '''
-Menerima input array
-Memberi output index dari nilai terrendah pada array tersebut
+Menerima input array, indeks awal dan akhir daerah definisi yang diperiksa
 '''
-def minIndex(array):
-    minim = array[0]
-    iminim = 0
-    for i in array:
-        if array[i] < minim:
+def minIndex(array, start, end):
+    iminim = start
+    for i in range(start, end+1):
+        if array[i] < array[iminim]:
             iminim = i
     return iminim
+
+###sortQueue()
+'''
+Menerima input suatu array(queue), mengurutkan dari nilai terkecil
+'''
+def sortQueue(queue):
+    newQueue = [0 for i in range(queue[0]+1)]
+    newQueue[0] = queue[0]
+    len = queue[0]
+    
+    for i in range(1, len+1):
+        newQueue[i] = queue[minIndex(queue, 1, len)]
+        queue[minIndex(queue, 1, len)] = 99
+
+    print(queue)
+
+    return newQueue
+
+
 
 
