@@ -150,5 +150,14 @@ def progressQueue(queue):
 
     return newQueue
 
+###mirrorChanges()
+'''
+Digunakan untuk mengubah urutan item dalam array sesuai dengan perubahan urutan pada array lainnya
+Digunakan dalam progressQueue dan sortQueue
+Kalo boleh pakai custom datatype ini gaperlu si tapi yaudah skalian aja 
+'''
+def mirrorChanges(refArray, changedArray):
+
+    return
 
 
