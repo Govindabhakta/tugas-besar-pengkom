@@ -43,6 +43,7 @@ def dist(asal, destinasi):
     dist = math.sqrt((pos[asal][0]-pos[destinasi][0])*(pos[asal][0]-pos[destinasi][0]) + (pos[asal][1]-pos[destinasi][1])*(pos[asal][1]-pos[destinasi][1]))
     return dist
 
+
 def setMacet(timeOfDay):
     if timeOfDay == "Morning" or "1":
         street[2][2] *= 2.00

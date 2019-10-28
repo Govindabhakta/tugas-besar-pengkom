@@ -8,12 +8,14 @@ Ryandito Diandaru           16519150
 Kevin Angga Yumawan         16519210
 Aindrea Rayhan Supriyanto   16519360
 '''
+import gofood
+import goPay
+import goTransport
+import routeFind
+import bayarGoPay
 
 
 ###FUNGSI PLACEHOLDER
-def Jarak(asal, destinasi):
-    return 25
-
 def RestaurantFind(i):
     tempat = ["Crisbar", "Salman", "Upnormal"]
     return tempat[i]
@@ -31,7 +33,8 @@ def BayarGopay(gopay, harga):
 
 ###MAIN APPLICATION
 def Gojek():
-    #Semua fungsi nanti dipakai disini, didefinisiinnya di atas
-    #gopay = int(0)
+    gopay = 0
+
+
     return
 ###END OF MAIN APPLICATION
