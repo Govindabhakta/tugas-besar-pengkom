@@ -161,5 +161,7 @@ def pickNextNode(nodes, currentNode):
     
     return iminim
 
-setMacet(1)
-print(Jarak(0, 5))
+a = int(input("Origin?"))
+b = int(input("Destination?"))
+print(Jarak(a, b))
+###COOL COOL COOL COOL COOL COOL COOL COOL COOL
