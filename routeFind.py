@@ -43,6 +43,8 @@ def dist(asal, destinasi):
     dist = math.sqrt((pos[asal][0]-pos[destinasi][0])*(pos[asal][0]-pos[destinasi][0]) + (pos[asal][1]-pos[destinasi][1])*(pos[asal][1]-pos[destinasi][1]))
     return dist
 
+def Location():
+    return loc
 
 def setMacet(timeOfDay):
     if timeOfDay == "Morning" or "1":
@@ -162,7 +164,7 @@ def pickNextNode(nodes, currentNode):
     
     return iminim
 
-a = int(input("Origin?"))
-b = int(input("Destination?"))
-print(Jarak(a, b))
+# a = int(input("Origin?"))
+# b = int(input("Destination?"))
+# print(Jarak(a, b))
 ###COOL COOL COOL COOL COOL COOL COOL COOL COOL

@@ -8,33 +8,46 @@ Ryandito Diandaru           16519150
 Kevin Angga Yumawan         16519210
 Aindrea Rayhan Supriyanto   16519360
 '''
-import gofood
-import goPay
-import goTransport
-import routeFind
-import bayarGoPay
-
-
-###FUNGSI PLACEHOLDER
-def RestaurantFind(i):
-    tempat = ["Crisbar", "Salman", "Upnormal"]
-    return tempat[i]
-
-def BayarGopay(gopay, harga):
-    #Parameter gopay adalah variabel jumlah gopay yang ada
-    #Parameter harga adalah variabel harga barang yang dibeli
-    #Nanti BayarGopay() returnnya jumlah yang dibayar pakai gopay dan jumlah yang pakai cash
-    payWithCash = 0
-    payWithGopay = float(harga)
-    return 
-###END OF FUNGSI PLACEHOLDER
-
-
+from gofood import goFood
+from bayarGoPay import BayarGopay
+from goPay import TopUpGopay
 
 ###MAIN APPLICATION
 def Gojek():
     gopay = 0
 
+    appRunning = True
+    print("Welcome to KojeG...")
+    while appRunning:
+        print("Saldo gopay ente:", gopay)
+        print("[1] GoFood")
+        print("[2] GoRide")
+        print("[3] GoCar")
+        print("[4] GoSend")
+        print("[5] Topup Gopay")
+        print("[6] Exit")
+
+        mainMenuInput = int(input("Whatchu wanna do: "))
+        if mainMenuInput == 1:
+            goFood(gopay)
+        elif mainMenuInput == 2:
+            goFood(gopay)
+        elif mainMenuInput == 3:
+            goFood(gopay)
+        elif mainMenuInput == 4:
+            goFood(gopay)
+        elif mainMenuInput == 5:
+            gopay = TopUpGopay(gopay)
+        elif mainMenuInput == 6:
+            print("Ciao")
+            appRunning = False
+        
+        print("Welcome back to KojeG...")
+        
+    #gopay = 0
+
 
     return
 ###END OF MAIN APPLICATION
+
+Gojek()
