@@ -50,8 +50,13 @@ def setMacet(timeOfDay):
         street[1][2] *= 1.25
     elif timeOfDay == "Afternoon" or "2":
         street[1][2] *= 1.50
-        street[4][2] *= 1.50
+        street[4][2] *= 2.00
+        street[2][2] *= 2.00
+        street[1][2] *= 1.50
+        street[4][2] *= 2.00
         street[2][2] *= 1.25
+        street[1][2] *= 2.00
+
     elif timeOfDay == "Evening" or "3":
         street[5][2] *= 0.80
         street[0][2] *= 1.50
@@ -72,39 +77,25 @@ def Jarak(asal, destinasi):
         [dist(2, destinasi), 0, 9999, 0],
         [dist(3, destinasi), 0, 9999, 0],
         [dist(4, destinasi), 0, 9999, 0],
-        [dist(5, destinasi), 0, 9999, 0]
+        [dist(5, destinasi), 0, 9999, 0],
     ]
     currentNode = asal
-
-    # while currentNode != destinasi:
-    count = connectedCount(currentNode)
-    connectedNode = connectedNodes(currentNode)
-    connectedStreet = connectedStreets(currentNode)
     
-    # print(count)
-    # print(connectedNode)
-    # print(connectedStreet)
-
-    # while currentNode != destinasi:
     while currentNode != destinasi:
         count = connectedCount(currentNode)
         connectedNode = connectedNodes(currentNode)
         connectedStreet = connectedStreets(currentNode)
-
-        print(currentNode)
-        print(nodes)
 
         for i in range(count):
             nodes = updateDist(nodes, int(connectedNode[i]), currentNode, int(connectedStreet[i]))
             nodes[int(connectedNode[i])][2] = nodes[int(connectedNode[i])][0] + nodes[int(connectedNode[i])][1] 
 
         nodes[currentNode][3] = 1
-        currentNode = pickNextNode(nodes)
-        print(currentNode)
+        currentNode = pickNextNode(nodes, currentNode)
 
-    print("Distance:", nodes[currentNode][1])
+    distance = nodes[currentNode][1]
 
-    return nodes
+    return distance
 
 def connectedNodes(currentNode):
     nodes = ""
@@ -158,10 +149,17 @@ def updateDist(nodes, nextNode, originNode, path):
 
     return newnodes
 
-def pickNextNode(nodes):
-    iminim = 0
+def pickNextNode(nodes, currentNode):
+    if currentNode != 5:
+        iminim = currentNode+1
+    else:
+        iminim = 4
+
     for i in range(6):
         if nodes[i][2] <= nodes[iminim][2] and nodes[i][3] == 0 and nodes[iminim][3] == 0:
             iminim = i
     
     return iminim
+
+setMacet(1)
+print(Jarak(0, 5))
