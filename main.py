@@ -12,6 +12,8 @@ from gofood import goFood
 from bayarGoPay import BayarGopay
 from goPay import TopUpGopay
 
+import os
+
 ###MAIN APPLICATION
 def Gojek():
     gopay = 0
@@ -28,6 +30,8 @@ def Gojek():
         print("[6] Exit")
 
         mainMenuInput = int(input("Whatchu wanna do: "))
+        os.system('cls')
+
         if mainMenuInput == 1:
             goFood(gopay)
         elif mainMenuInput == 2:
@@ -42,10 +46,9 @@ def Gojek():
             print("Ciao")
             appRunning = False
         
-        print("Welcome back to KojeG...")
+        os.system('cls')
         
-    #gopay = 0
-
+        print("Welcome back to KojeG...")
 
     return
 ###END OF MAIN APPLICATION

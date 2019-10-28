@@ -2,8 +2,6 @@
 from bayarGoPay import BayarGopay
 from routeFind import Jarak, Location
 
-
-
 total = 0
 saldo = 1000
 
