@@ -1,14 +1,3 @@
-'''
-DIRECTORY
-| ARRAY DATA
-    | loc[]             12
-    | pos[]             22
-    | street[]          32
-| FUNGSI
-    | distTo()          52
-    | Jarak()           61
-    | pickStreet()      x
-'''
 import math
 
 
@@ -48,114 +37,131 @@ street = [
     [1, 4, 5]
 ]
 
-###distTo()
-'''
-distTo(posA, posB)
-parameter posA dan posB dapat berupa indeks loc[] ataupun indeks pos[]
-'''
-def distTo(A, B):
-    dist = math.sqrt((pos[A][0]+pos[B][0])*(pos[A][0]+pos[B][0]) + (pos[A][1]+pos[B][1])*(pos[A][1]+pos[B][1]))
+numOfStreets = 7
+
+def dist(asal, destinasi):
+    dist = math.sqrt((pos[asal][0]-pos[destinasi][0])*(pos[asal][0]-pos[destinasi][0]) + (pos[asal][1]-pos[destinasi][1])*(pos[asal][1]-pos[destinasi][1]))
     return dist
 
-###Jarak()
-'''
-jarak(asal, destinasi) 
-parameter asal dan destinasi adalah indeks loc[]
-'''
-def Jarak(start, end):
-    dist = 0 
+def setMacet(timeOfDay):
+    if timeOfDay == "Morning" or "1":
+        street[2][2] *= 2.00
+        street[0][2] *= 1.25
+        street[1][2] *= 1.25
+    elif timeOfDay == "Afternoon" or "2":
+        street[1][2] *= 1.50
+        street[4][2] *= 1.50
+        street[2][2] *= 1.25
+    elif timeOfDay == "Evening" or "3":
+        street[5][2] *= 0.80
+        street[0][2] *= 1.50
+        street[1][2] *= 1.25
+
+
+def Jarak(asal, destinasi):
+    '''
+    nodes relisted
+    nodes[x][0] = heuretic distance
+    nodes[x][1] = real distance
+    nodes[x][2] = combined distance
+    '''
+
+    nodes = [
+        [dist(0, destinasi), 0, 9999, 0],
+        [dist(1, destinasi), 0, 9999, 0],
+        [dist(2, destinasi), 0, 9999, 0],
+        [dist(3, destinasi), 0, 9999, 0],
+        [dist(4, destinasi), 0, 9999, 0],
+        [dist(5, destinasi), 0, 9999, 0]
+    ]
+    currentNode = asal
+
+    # while currentNode != destinasi:
+    count = connectedCount(currentNode)
+    connectedNode = connectedNodes(currentNode)
+    connectedStreet = connectedStreets(currentNode)
     
-    currentNode = start
-    queue = ""
+    # print(count)
+    # print(connectedNode)
+    # print(connectedStreet)
 
-    while currentNode != end:
-        queue += pickStreet(currentNode, end)
+    # while currentNode != destinasi:
+    while currentNode != destinasi:
+        count = connectedCount(currentNode)
+        connectedNode = connectedNodes(currentNode)
+        connectedStreet = connectedStreets(currentNode)
 
+        print(currentNode)
+        print(nodes)
 
-    return dist
+        for i in range(count):
+            nodes = updateDist(nodes, int(connectedNode[i]), currentNode, int(connectedStreet[i]))
+            nodes[int(connectedNode[i])][2] = nodes[int(connectedNode[i])][0] + nodes[int(connectedNode[i])][1] 
 
-###PICKSTREET MENCARI JALAN YANG TERHUBUNG DENGAN A DENGAN DISPLACEMENT TERKECIL DARI A KE B
-def pickStreet(A, B):
-    #Routes adalah indeks jalan yang terhubung dengan A
-    routes = ""
-    
-    #RoutesEnd adalah ujung lainnya dari jalan yang terhubung dengan A
-    routesEnd = ""
+        nodes[currentNode][3] = 1
+        currentNode = pickNextNode(nodes)
+        print(currentNode)
 
-    #Count menghitung panjang string routes dan routesEnd
-    count = 0
+    print("Distance:", nodes[currentNode][1])
 
+    return nodes
+
+def connectedNodes(currentNode):
+    nodes = ""
     for i in range(7):
         #Mencari jalan yang terhubung dengan A
         #Menambahkan indeksnya ke routes, dan menambahkan indeks jalan akhirnya ke routesEnd
-        if street[i][0] == A:
-            routes = routes + str(i)
-            routesEnd = routesEnd + str(street[i][1])
-            count += 1
-        elif street[i][1] == A:
-            routes += i
-            routesEnd = routesEnd + str(street[i][0])
-            count += 1
+        if street[i][0] == currentNode:
+            nodes = nodes + str(street[i][1])
+        elif street[i][1] == currentNode:
+            nodes = nodes + str(street[i][0])
 
-    #DEBUG
-    print(routes)
-    print(count) 
-    print(routesEnd)
+    return nodes
 
-    for i in range(count):
-        print(routes[i], routesEnd[i])
+def connectedStreets(currentNode):
+    streets = ""
+    for i in range(numOfStreets):
+        #Mencari jalan yang terhubung dengan A
+        #Menambahkan indeksnya ke routes, dan menambahkan indeks jalan akhirnya ke routesEnd
+        if street[i][0] == currentNode:
+            streets = streets + str(i)
+        elif street[i][1] == currentNode:
+            streets = streets + str(i)
+
+    return streets
+
+def connectedCount(currentNode):
+    count = 0
+    for i in range(7):
+        #Mencari jalan yang terhubung dengan A
+        #Menambahkan indeksnya ke routes, dan menambahkan indeks jalan akhirnya ke routesEnd
+        if street[i][0] == currentNode:
+            count += 1
+        elif street[i][1] == currentNode:
+            count += 1
     
-    return routesEnd
+    return count
 
-###minIndex()
-'''
-Menerima input array, indeks awal dan akhir daerah definisi yang diperiksa
-'''
-def minIndex(array, start, end):
-    iminim = start
-    for i in range(start, end+1):
-        if array[i] < array[iminim]:
+def updateDist(nodes, nextNode, originNode, path):
+    currentDist = nodes[nextNode][1]
+    newDist = nodes[originNode][1] + street[path][2]
+    newnodes = nodes
+
+    if currentDist == 0:
+        newnodes[nextNode][1] = newDist
+    else:
+        if currentDist < newDist:
+            newnodes[nextNode][1] = currentDist
+        else:
+            newnodes[nextNode][1] = newDist
+
+
+    return newnodes
+
+def pickNextNode(nodes):
+    iminim = 0
+    for i in range(6):
+        if nodes[i][2] <= nodes[iminim][2] and nodes[i][3] == 0 and nodes[iminim][3] == 0:
             iminim = i
-    return iminim
-
-###sortQueue()
-'''
-Menerima input suatu array(queue), mengurutkan dari nilai terkecil
-'''
-def sortQueue(queue):
-    newQueue = [0 for i in range(queue[0]+1)]
-    newQueue[0] = queue[0]
-    len = queue[0]
     
-    for i in range(1, len+1):
-        newQueue[i] = queue[minIndex(queue, 1, len)]
-        queue[minIndex(queue, 1, len)] = 99
-
-    print(queue)
-
-    return newQueue
-
-###progressQueue()
-'''
-Menerima input suatu array(queue), menghilangkan indeks 1 dan memajukan seluruh indeks dibelakangnya
-'''
-def progressQueue(queue):
-    newQueue = [0 for i in range(queue[0])]
-    newQueue[0] = queue[0]-1
-    print(queue)
-    for i in range(1, queue[0]):
-        newQueue[i] = queue[i+1]
-
-    return newQueue
-
-###mirrorChanges()
-'''
-Digunakan untuk mengubah urutan item dalam array sesuai dengan perubahan urutan pada array lainnya
-Digunakan dalam progressQueue dan sortQueue
-Kalo boleh pakai custom datatype ini gaperlu si tapi yaudah skalian aja 
-'''
-def mirrorChanges(refArray, changedArray):
-
-    return
-
-
+    return iminim
