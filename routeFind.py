@@ -66,8 +66,10 @@ jarak(asal, destinasi)
 parameter asal dan destinasi adalah indeks loc[]
 '''
 def Jarak(start, end):
-    dist = 0 
+    #Placeholder
+    dist = 25
     
+
     return dist
 
 '''
