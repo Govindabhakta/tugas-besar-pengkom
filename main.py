@@ -11,6 +11,7 @@ Aindrea Rayhan Supriyanto   16519360
 from gofood import goFood
 from bayarGoPay import BayarGopay
 from goPay import TopUpGopay
+from goTransport import Gocar, Goride, Gosend
 
 import os
 
@@ -35,20 +36,21 @@ def Gojek():
         if mainMenuInput == 1:
             goFood(gopay)
         elif mainMenuInput == 2:
-            goFood(gopay)
+            Goride(gopay)
         elif mainMenuInput == 3:
-            goFood(gopay)
+            Gocar(gopay)
         elif mainMenuInput == 4:
-            goFood(gopay)
+            Gosend(gopay)
         elif mainMenuInput == 5:
             gopay = TopUpGopay(gopay)
         elif mainMenuInput == 6:
-            print("Ciao")
             appRunning = False
         
-        os.system('cls')
-        
-        print("Welcome back to KojeG...")
+        if mainMenuInput != 6: 
+            os.system('cls')
+            print("Welcome back to KojeG...")
+
+    print("Goodbye brudah")
 
     return
 ###END OF MAIN APPLICATION

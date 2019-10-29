@@ -19,6 +19,10 @@ def BayarGopay(gopay, harga):
             gopay = gopay - harga
         elif gopay < harga:
             gopay = 0
+    else:
+        print("Yauds lain kali ae\n")
+    
+    done = input("Enter buat cabuts balik ke halaman utama yo")
     return
         
 

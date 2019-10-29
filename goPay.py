@@ -38,7 +38,7 @@ def TopUpGopay(gopay):
             print("2. Bilang ke driver yang sedang mengambil order kalau kamu mau ditransferin GoPay.")
             print("3. Kasih ke driver yang tunai sejumlah GoPay yang ditransfer ke kamu.")
             print("4. Pastikan GoPay kamu sudah bertambah.")
-            return
+            
 
         elif (Pil_Met == 2):
             print("Minimarket & Pegadaian")
@@ -60,7 +60,7 @@ def TopUpGopay(gopay):
                 print("5. Kasir akan mengisi saldo ke akun GoPay kamu.")
                 print("6. Pastikan GoPay kamu sudah bertambah.")
                 print("7. SImpan tanda terimanya sebagai bukti pembayaran sah.")
-                return
+                
             else:
                 print("Cara isi GoPay:")
                 print("BIAYA ADMIN Rp2.000 - MINIMUM ISI Rp10.000")
@@ -72,7 +72,7 @@ def TopUpGopay(gopay):
                 print("5. Kasir akan mengisi saldo ke akun GoPay kamu.")
                 print("6. Pastikan GoPay kamu sudah bertambah.")
                 print("7. SImpan tanda terimanya sebagai bukti pembayaran sah.")
-                return
+                
 
         elif (Pil_Met == 3):
             print("Cara isi GoPay:")
@@ -85,7 +85,7 @@ def TopUpGopay(gopay):
             print("5. Konfirmasi pembayaranmu lalu pilih KONFIRMASI & BAYAR.")
             print("6. Masukkan PIN GoPay kamu.")
             print("7. Setelah berhasil isi saldo, kamu bakal dapat notifikasi kalau GoPay kamu udah bertambah.")
-            return
+            
         
         elif (Pil_Met == 4):
             print("Mobile banking")
@@ -107,7 +107,7 @@ def TopUpGopay(gopay):
                 print("4. Masukkan jumlah GoPay yang ingin diisi.")
                 print("5. Masukkan PIN m-BCA kamu.")
                 print("6. Ikuti petunjuk selanjutnya untuk menyelesaikan proses pengisian GoPay.")
-                return
+                
             
             elif i == 2:
                 print("Cara isi GoPay:")
@@ -118,7 +118,7 @@ def TopUpGopay(gopay):
                 print("3. Masukkan nomor telepon yang terdaftar pada aplikasi Gojek.")
                 print("4. Masukkan jumlah GoPay yang ingin diisi.")
                 print("5. Ikuti petunjuk selanjutnya untuk menyelesaikan proses pengisian GoPay.")
-                return
+                
             
             elif i == 3:
                 print("Cara isi GoPay:")
@@ -130,7 +130,7 @@ def TopUpGopay(gopay):
                 print("4. Masukkan jumlah GoPay yang ingin diisi.")
                 print("5. Masukkan PIN untuk memverifikasi transaksi.")
                 print("6. Ikuti petunjuk selanjutnya untuk menyelesaikan proses pengisian GoPay.")
-                return
+                
             
             elif i == 4:
                 print("Cara isi GoPay:")
@@ -141,7 +141,7 @@ def TopUpGopay(gopay):
                 print("3. Masukkan nomor HP Anda yang terdaftar pada Gojek.")
                 print("4. Masukkan jumlah top up yang diinginkan.")
                 print("5. Ikuti instruksi untuk menyelesaikan transaksi.")
-                return
+                
             
             else:
                 print("Cara isi GoPay:")
@@ -153,7 +153,7 @@ def TopUpGopay(gopay):
                 print("4. Masukkan nomor HP Anda yang terdaftar pada Gojek.")
                 print("5. Masukkan jumlah top up yang diinginkan.")
                 print("6. Ikuti instruksi untuk menyelesaikan transaksi.")
-                return
+                
             
         else:
             print("SMS Banking")
@@ -166,7 +166,6 @@ def TopUpGopay(gopay):
                 print()
                 print("1. Kirim SMS ke 3300 dan ketik: BELI(spasi)GOPAY(spasi)301341(spasi)Nomor Handphone(spasi)Nominal(spasi)PIN(spasi)Mobile Banking.")
                 print("2. Ikuti petunjuk selanjutnya untuk menyelesaikan proses pengisian GoPay.")
-                return
             
             else:
                 print("Cara isi GoPay:")
@@ -174,4 +173,6 @@ def TopUpGopay(gopay):
                 print()
                 print("1. Kirim SMS ke 3346 dan ketik: TOP(spasi)GOPAY(spasi)CUSTOMER(spasi)Phone Number(spasi)TopUp Amount.")
                 print("2. Ikuti petunjuk selanjutnya untuk menyelesaikan proses pengisian GoPay.")
-                return
+
+    exit = input("Enter buat lanjut yo")
+    return
