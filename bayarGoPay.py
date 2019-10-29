@@ -15,14 +15,11 @@ def BayarGopay(gopay, harga):
     Bayar = str(input())
     if Bayar == "Y":
         print("Okii pembayaran lunas...\n")
-        if gopay >= harga:
-            gopay = gopay - harga
-        elif gopay < harga:
-            gopay = 0
+        gopay = gopay - payWithGopay
     else:
         print("Yauds lain kali ae\n")
     
     done = input("Enter buat cabuts balik ke halaman utama yo")
-    return
+    return gopay
         
 

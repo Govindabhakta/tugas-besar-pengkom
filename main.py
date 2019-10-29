@@ -17,7 +17,7 @@ import os
 
 ###MAIN APPLICATION
 def Gojek():
-    gopay = 0
+    gopay = 10000
 
     appRunning = True
     print("Welcome to KojeG...")
@@ -34,13 +34,13 @@ def Gojek():
         os.system('cls')
 
         if mainMenuInput == 1:
-            goFood(gopay)
+            gopay = goFood(gopay)
         elif mainMenuInput == 2:
-            Goride(gopay)
+            gopay = Goride(gopay)
         elif mainMenuInput == 3:
-            Gocar(gopay)
+            gopay = Gocar(gopay)
         elif mainMenuInput == 4:
-            Gosend(gopay)
+            gopay = Gosend(gopay)
         elif mainMenuInput == 5:
             gopay = TopUpGopay(gopay)
         elif mainMenuInput == 6:

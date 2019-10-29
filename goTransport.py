@@ -22,20 +22,23 @@ def Goride(gopay):
     destinasi, asal = pick()
     total = price(destinasi, asal ,4000)
     print("Harga penggunaan jasa: ", total, " Rupiah")
-    BayarGopay(gopay, total)
+    gopay = BayarGopay(gopay, total)
+    return gopay
 
 def Gocar(gopay):
     destinasi, asal = pick()
     total = price(destinasi, asal, 8000)
     print("Harga penggunaan jasa: ", total, " Rupiah")
-    BayarGopay(gopay, total)
+    gopay = BayarGopay(gopay, total)
+    return gopay
 
 def Gosend(gopay):
     destinasi, asal = pick()
     dat()
     total = price(destinasi, asal ,4000)
     print("Harga penggunaan jasa: ", total, " Rupiah")
-    BayarGopay(gopay, total)
+    gopay = BayarGopay(gopay, total)
+    return gopay
 
 def dat():
     sname   = input("Nama pengirim: ")

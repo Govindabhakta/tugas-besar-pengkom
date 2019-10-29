@@ -1,5 +1,25 @@
-import math
+'''
+DIRECTORY 
+IMPORTS
+| math                  21
+DATA        
+| loc                   24
+| pos                   34
+| street                49
+FUNCTIONS
+| dist()                61
+| Location()            65
+| SetMacet()            68
+| Jarak()               88
+| connectedNodes()      122
+| connectedStreets()    135
+| connectedCount()      147
+| updateDist()          159
+| pickNextNode()        175
+'''
 
+
+import math
 
 ###DAFTAR NAMA DAN INDEKS TEMPAT
 loc = [

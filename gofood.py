@@ -70,7 +70,10 @@ def goFood(gopay):
 
     print('Biaya makanan = ', totalBayar - biayaAntar) 
     print('Biaya antar   = ', biayaAntar)
-    BayarGopay(gopay, totalBayar) 
-    return
+    
+    gopay = BayarGopay(gopay, totalBayar) 
+    
+    return gopay
+
 
                 
