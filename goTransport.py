@@ -16,7 +16,7 @@ def pick():
 
     destinasi   = int(input("Silakan pilih destinasi: "))
     asal        = int(input("silakan pilih lokasi penjemputan: "))
-    return destinasi, asal
+    return destinasi-1, asal-1
 
 def Goride(gopay):
     destinasi, asal = pick()
